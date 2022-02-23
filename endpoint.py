@@ -2,72 +2,73 @@ import requests
 import json
 
 # URL for the web service, should be similar to:
-# 'http://8530a665-66f3-49c8-a953-b82a2d312917.eastus.azurecontainer.io/score'
-scoring_uri = 'http://29c52a0d-ea95-4abb-9a90-c64e8a2c080d.southcentralus.azurecontainer.io/score'
+scoring_uri = "http://89c17c6c-9f45-4ea4-b776-97ccebeaf211.southcentralus.azurecontainer.io/score"
+
 # If the service is authenticated, set the key or token
-key = 's9BZjgRj6Xcpj3fxKbaNMZAPW9e3n6n6'
+key = "mMEqZLlpzzCCgbKqq3DEyFy2m3cizzy8"
 
 # Two sets of data to score, so we get two results back
-data = {"data":
-        [
-          {
-            "age": 17,
-            "job": "blue-collar",
-            "marital": "married",
-            "education": "university.degree",
-            "default": "no",
-            "housing": "yes",
-            "loan": "yes",
-            "contact": "cellular",
-            "month": "may",
-            "day_of_week": "mon",
-            "duration": 971,
-            "campaign": 1,
-            "pdays": 999,
-            "previous": 1,
-            "poutcome": "failure",
-            "emp.var.rate": -1.8,
-            "cons.price.idx": 92.893,
-            "cons.conf.idx": -46.2,
-            "euribor3m": 1.299,
-            "nr.employed": 5099.1
-          },
-          {
-            "age": 87,
-            "job": "blue-collar",
-            "marital": "married",
-            "education": "university.degree",
-            "default": "no",
-            "housing": "yes",
-            "loan": "yes",
-            "contact": "cellular",
-            "month": "may",
-            "day_of_week": "mon",
-            "duration": 471,
-            "campaign": 1,
-            "pdays": 999,
-            "previous": 1,
-            "poutcome": "failure",
-            "emp.var.rate": -1.8,
-            "cons.price.idx": 92.893,
-            "cons.conf.idx": -46.2,
-            "euribor3m": 1.299,
-            "nr.employed": 5099.1
-          },
-      ]
+data = {
+    "Inputs": {
+        "data": [{
+		"age": 17,
+		"job": "blue-collar",
+		"marital": "married",
+		"education": "university.degree",
+		"default": "no",
+		"housing": "yes",
+		"loan": "yes",
+		"contact": "cellular",
+		"month": "may",
+		"day_of_week": "mon",
+		"duration": 971,
+		"campaign": 1,
+		"pdays": 999,
+		"previous": 1,
+		"poutcome": "failure",
+		"emp.var.rate": -2,
+		"cons.price.idx": 92,
+		"cons.conf.idx": -46,
+		"euribor3m": 1,
+		"nr.employed": 5099,
+	}, {
+		"age": 87,
+		"job": "blue-collar",
+		"marital": "married",
+		"education": "university.degree",
+		"default": "no",
+		"housing": "yes",
+		"loan": "yes",
+		"contact": "cellular",
+		"month": "may",
+		"day_of_week": "mon",
+		"duration": 471,
+		"campaign": 1,
+		"pdays": 999,
+		"previous": 1,
+		"poutcome": "failure",
+		"emp.var.rate": -2,
+		"cons.price.idx": 92,
+		"cons.conf.idx": -46,
+		"euribor3m": 1,
+		"nr.employed": 5099,
+	},],
+    },
+    "GlobalParameters": {
+        'method': "predict",
     }
+}
+
 # Convert to JSON string
 input_data = json.dumps(data)
 with open("data.json", "w") as _f:
     _f.write(input_data)
 
 # Set the content type
-headers = {'Content-Type': 'application/json'}
+headers = {"Content-Type": "application/json"}
 # If authentication is enabled, set the authorization header
-headers['Authorization'] = f'Bearer {key}'
+headers["Authorization"] = f"Bearer {key}"
 
 # Make the request and display the response
 resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.json())
-
-
