@@ -3,9 +3,9 @@ import json
 
 # URL for the web service, should be similar to:
 # 'http://8530a665-66f3-49c8-a953-b82a2d312917.eastus.azurecontainer.io/score'
-scoring_uri = "http://5287a3bb-7b64-4a2b-8385-1f871829ef3b.southcentralus.azurecontainer.io/score"
+scoring_uri = 'http://29c52a0d-ea95-4abb-9a90-c64e8a2c080d.southcentralus.azurecontainer.io/score'
 # If the service is authenticated, set the key or token
-key = "ub01lZ21AhMtZSUqfZRkgNDlrNWC4Fhq"
+key = 's9BZjgRj6Xcpj3fxKbaNMZAPW9e3n6n6'
 
 # Two sets of data to score, so we get two results back
 data = {"data":
@@ -13,7 +13,7 @@ data = {"data":
           {
             "age": 17,
             "job": "blue-collar",
-            "marital": "married",       
+            "marital": "married",
             "education": "university.degree",
             "default": "no",
             "housing": "yes",
@@ -21,40 +21,39 @@ data = {"data":
             "contact": "cellular",
             "month": "may",
             "day_of_week": "mon",
-            "duration": 971,   
+            "duration": 971,
             "campaign": 1,
             "pdays": 999,
-            "previous": 1
+            "previous": 1,
             "poutcome": "failure",
             "emp.var.rate": -1.8,
             "cons.price.idx": 92.893,
             "cons.conf.idx": -46.2,
             "euribor3m": 1.299,
-            "nr.employed": 5099.1,
-
+            "nr.employed": 5099.1
           },
           {
             "age": 87,
             "job": "blue-collar",
             "marital": "married",
-            "education": "university.degree", 
+            "education": "university.degree",
             "default": "no",
             "housing": "yes",
-            "loan": "yes",      
-            "contact": "cellular", 
-            "month": "may",      
+            "loan": "yes",
+            "contact": "cellular",
+            "month": "may",
             "day_of_week": "mon",
-            "duration": 471,  
+            "duration": 471,
             "campaign": 1,
-            "pdays": 999,     
-            "previous": 1
-            "poutcome": "failure",    
-            "emp.var.rate": -1.8,       
+            "pdays": 999,
+            "previous": 1,
+            "poutcome": "failure",
+            "emp.var.rate": -1.8,
             "cons.price.idx": 92.893,
             "cons.conf.idx": -46.2,
             "euribor3m": 1.299,
-            "nr.employed": 5099.1,
-         },
+            "nr.employed": 5099.1
+          },
       ]
     }
 # Convert to JSON string
